@@ -39,6 +39,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB2965141FB4219800B2BCCC /* copyStrongAssign */ = {
+			isa = PBXGroup;
+			children = (
+				BB9E98BF1FB1A24200CEC171 /* ViewController.h */,
+				BB9E98C01FB1A24200CEC171 /* ViewController.m */,
+			);
+			path = copyStrongAssign;
+			sourceTree = "<group>";
+		};
 		BB9E98B01FB1A24200CEC171 = {
 			isa = PBXGroup;
 			children = (
@@ -60,8 +69,7 @@
 			children = (
 				BB9E98BC1FB1A24200CEC171 /* AppDelegate.h */,
 				BB9E98BD1FB1A24200CEC171 /* AppDelegate.m */,
-				BB9E98BF1FB1A24200CEC171 /* ViewController.h */,
-				BB9E98C01FB1A24200CEC171 /* ViewController.m */,
+				BB2965141FB4219800B2BCCC /* copyStrongAssign */,
 				BB9E98C21FB1A24200CEC171 /* Main.storyboard */,
 				BB9E98C51FB1A24200CEC171 /* Assets.xcassets */,
 				BB9E98C71FB1A24200CEC171 /* LaunchScreen.storyboard */,
