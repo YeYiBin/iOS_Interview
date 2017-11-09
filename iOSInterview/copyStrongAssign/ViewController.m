@@ -306,8 +306,7 @@ typedef int(^TestBlock)(int a);
     self.aCopyMArr= mArrOrigin;
     self.strongMArr= mArrOrigin;
     self.weakMArr= mArrOrigin;
-    
-    NSLog(@"mArrOrigin输出:%p,%@\\n", mArrOrigin,mArrOrigin);
+        NSLog(@"mArrOrigin输出:%p,%@\\n", mArrOrigin,mArrOrigin);
     NSLog(@"aCopyMArr输出:%p,%@\\n",_aCopyMArr,_aCopyMArr);
     NSLog(@"strongMArr输出:%p,%@\\n",_strongMArr,_strongMArr);
     NSLog(@"weakMArr输出:%p,%@\\n",_weakMArr,_weakMArr);
