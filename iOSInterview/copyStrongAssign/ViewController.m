@@ -381,7 +381,7 @@ typedef int(^TestBlock)(int a);
 
 
 /**
- 这个 weak 测试告诉我们  strong 和 copy strOrigin 影响了weak 这个属性的值
+ 这个 weak 测试告诉我们 上面方法中 strong 和 copy strOrigin 影响了weak 这个属性的值
  对比 和 上面那个方法的测试 weakStr 的输出。
  还有一个 strOrigin 被赋予新的值后  前面一块区域实际是被系统回收了 weak 的对象设置成了 null 值
  这样 没有野指针
