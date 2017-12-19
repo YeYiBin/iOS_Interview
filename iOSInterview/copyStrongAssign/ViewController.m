@@ -62,7 +62,7 @@ typedef int(^TestBlock)(int a);
 //    [self testRetainBlockAgain];
     
 //    [self  arrTest];
-//    [self nsstringTest];
+    [self nsstringTest];
     [self weakStringTestTwo];
 }
 
@@ -238,6 +238,11 @@ typedef int(^TestBlock)(int a);
     mBlock = nil;
     int c = self.retainTestBlock(4);   // 无论 mBlock 如何改变都没有改变 retainBlock
     
+    // 闪退 为啥 设置新值没有 改变
+//    self.retainTestBlock = nil;
+//    int d = self.retainTestBlock(4);
+//    NSLog(@"d is %d",d);
+    
 }
 
 - (void)assignBlockAlone
@@ -259,6 +264,12 @@ typedef int(^TestBlock)(int a);
     
     mBlock = nil;
     int c = self.assignTestBlock(4);
+    
+    // Thread 1: EXC_BAD_ACCESS (code=1, address=0x10)  直接报错
+//    self.assignTestBlock = nil;
+//    int d = self.assignTestBlock(4);
+//    NSLog(@"assign block alone is %d",d);
+    
 }
 
 /*
@@ -333,7 +344,7 @@ typedef int(^TestBlock)(int a);
     NSLog(@"weakMArr输出:%p,%@\\n",_weakMArr,_weakMArr);
     
     #pragma mark ---- !!! 注意发现  改变 mstr1
-    // _aCopyMArr 的第一个元素也发生了 也就是 copy 了array 但是没有对每个元素
+    // _aCopyMArr 的第一个元素也发生了改变 也就是 copy 了array 但是没有对每个元素
     // 每个元素copy 一遍放新的数组里面去 注意是并没有 这么做。
 }
 
@@ -365,7 +376,7 @@ typedef int(^TestBlock)(int a);
     NSLog(@"weakStr输出:%p,%@\\n",_weakStr,_weakStr);
     NSLog(@"------------------结论------------------------");
     
-    NSLog(@"strOrigin值值为改变，但strOrigin和aCopyStr指针地址和指向都已经改变，说明不可变类型值不可被修改，重新初始化");
+    NSLog(@"strOrigin值值为改变，但strOrigin和aCopyStr指针地址和指向都没有改变 还是strOrigin原来的地方，说明不可变类型值不可被修改，重新初始化");
     
     self.aCopyStr=nil;
     self.strongStr=nil;
@@ -376,7 +387,7 @@ typedef int(^TestBlock)(int a);
     
     NSLog(@"------------------结论------------------------");
     
-    NSLog(@"当只有weakStr拥有C时，值依旧会被释放，同非容器可变变量");
+    NSLog(@"当只有weakStr拥有C时，值依旧会被释放，同非容器可变变量，这里weak并没有设置为nil 也变成了nil");
 }
 
 
